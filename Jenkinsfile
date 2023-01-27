@@ -20,8 +20,15 @@ pipeline {
                     }
                 }
             }
-        }     
+        }
 
+        stage ('Deploy Kuberneste'){
+            steps {
+                withkubeconfing ([credentialsId: 'kubeconfig']){
+                    sh 'kubectl apply -f ./k8s/deployment.yaml'
+                }
+            }
+        }
     }
 
 }
