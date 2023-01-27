@@ -1,17 +1,15 @@
 pipeline {
     agent any
 
-stages {
+    stages {
 
-    stage ("Build Docker Image") (
-        steps {
-            script{
-                dockerapp = docker.build("brunohcl/kube-news:${en.BUILD_ID}", '-f ./src/Dockerfile, ./src')
+        stage ('Build Docker Image') {
+            steps {
+                script { 
+                    dockerapp = docker.build("fabricioveronez/kube-news:${env.BUILD_ID}", '-f ./src/Dockerfile ./src')
+                }
             }
         }
-    )
-
-
- }
+    }
 
 }
