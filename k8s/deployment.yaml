@@ -62,7 +62,7 @@ spec:
             value: "Pg#123" 
           - name: DB_HOST
             value: "postgre"    
----
+----
 apiVersion: v1
 kind: Service
 metadata:
